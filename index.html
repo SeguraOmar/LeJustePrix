@@ -10,22 +10,29 @@
     <title>Le juste prix</title>
 </head>
 
-<body class="bg-primary-subtle">
-    <div class="row m-0 col-lg-6 col-10 mx-auto bg-white mt-2 rounded"><img id="image"
-            src="image/512px-Logo_Juste_Prix_(2015)-transformed.jpg" alt="Le Juste Prix"></div>
+<body>
+    <h1>Devinez le Prix de l'Objet</h1>
+    <div id="photo">
+        <p id="nomObjet">Nom de l'objet</p>
+        <img id="imageObjet" src="" alt="Image article">
+        <p id="prixObjet">Prix : $<span id="prix">???</span></p>
+        <p id="essaisRestants">Essais restants : 10</p>
+        <input type="number" id="guess" placeholder="Devinez le prix">
+        <button onclick="devinerPrix()">Devinez</button>
+        <p id="message"></p>
+        <p id="messageTropBas" style="color: red;"></p>
+        <p id="messageTropEleve" style="color: red;"></p>
+        <p id="messageFelicitation" style="color: green;"></p>
 
-            
-    <div id="tableau"></div>
 
 
 
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+        <script src="script.js"></script>
 </body>
 
 </html>
