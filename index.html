@@ -15,14 +15,17 @@
     <div id="photo">
         <p id="nomObjet">Nom de l'objet</p>
         <img id="imageObjet" src="" alt="Image article">
-        <p id="prixObjet">Prix : $<span id="prix">???</span></p>
+        <p id="prixObjet">Prix : £<span id="prix">???</span></p>
         <p id="essaisRestants">Essais restants : 10</p>
-        <input type="number" id="guess" placeholder="Devinez le prix">
+        <input type="number" id="guess" placeholder="Devinez le prix" min="1" max="100">
         <button onclick="devinerPrix()">Devinez</button>
         <p id="message"></p>
         <p id="messageTropBas" style="color: red;"></p>
         <p id="messageTropEleve" style="color: red;"></p>
         <p id="messageFelicitation" style="color: green;"></p>
+        <!-- Pour recharger la page -->
+        <button id="rechargerPage" class="center-button" style="display: none;">Recharger la page</button>
+
 
 
 

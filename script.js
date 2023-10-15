@@ -52,32 +52,54 @@ function devinerPrix() {
   let essaisRestantsElement = document.getElementById("essaisRestants");
   let messageTropBas = document.getElementById("messageTropBas");
   let messageTropEleve = document.getElementById("messageTropEleve");
+  let messageFelicitation = document.getElementById("messageFelicitation");
+  let rechargerPageButton = document.getElementById("rechargerPage");
 
   let guess = parseFloat(guessInput.value);
   essaisRestants--;
 
+  // Pour mettre à jour les essais qui restent
+  essaisRestantsElement.textContent = "Essais restants : " + essaisRestants;
+
   if (guess === myImages[indiceAleatoire][2]) {
-    prixElement.textContent = "Bravo ! Vous avez deviné le bon prix : $" + myImages[indiceAleatoire][2].toFixed(2);
-    prixElement.style.display = "block";
-    essaisRestantsElement.style.display = "none";
-    messageTropBas.textContent = ""; // Réinitialisez le message "trop bas"
-    messageTropEleve.textContent = ""; // Réinitialisez le message "trop élevé"
-    messageFelicitation.textContent = "Félicitations ! Vous avez deviné le bon prix.";
-} else if (guess < myImages[indiceAleatoire][2]) {
-    messageTropBas.textContent = "Le montant est trop bas.";
-    messageTropEleve.textContent = ""; // Réinitialisez le message "trop élevé"
-    messageFelicitation.textContent = ""; // Réinitialisez le message de félicitations
-} else {
-    messageTropEleve.textContent = "Le montant est trop élevé.";
-    messageTropBas.textContent = ""; // Réinitialisez le message "trop bas"
-    messageFelicitation.textContent = ""; // Réinitialisez le message de félicitations
-}
+      prixElement.textContent = "Bravo ! Vous avez deviné le bon prix : $" + myImages[indiceAleatoire][2].toFixed(2);
+      prixElement.style.display = "block";
+      essaisRestantsElement.style.display = "none";
+      messageTropBas.textContent = ""; 
+      messageTropEleve.textContent = ""; 
+      messageFelicitation.textContent = "Félicitations ! Vous avez deviné le bon prix.";
+      
+      // Bouton de rechargement de la page
+      rechargerPageButton.style.display = "block";
+  } else if (guess < myImages[indiceAleatoire][2]) {
+      messageTropBas.textContent = "Le montant est trop bas.";
+      messageTropEleve.textContent = ""; 
+      messageFelicitation.textContent = ""; 
+  } else {
+      messageTropEleve.textContent = "Le montant est trop élevé.";
+      messageTropBas.textContent = ""; 
+      messageFelicitation.textContent = ""; 
+  }
 
-// ... (autres parties de la fonction restent inchangées)
-}
-
+  if (essaisRestants === 0 || guess === myImages[indiceAleatoire][2]) {
+      guessInput.style.display = "none";
+      rechargerPageButton.style.display = "block";
+  }
   
+  if (essaisRestants === 0) {
+      messageTropBas.textContent = "Vous avez épuisé vos essais.";
+  }
+
+ 
   afficherImageAleatoire();
+}
+
+// Rechargement de la page 
+let rechargerPageButton = document.getElementById("rechargerPage");
+rechargerPageButton.addEventListener("click", function () {
+    location.reload(); 
+});
+
 
 
 
